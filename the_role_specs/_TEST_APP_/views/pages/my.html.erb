@@ -1,0 +1,15 @@
+<p>
+  <%= link_to 'Back', root_path %>
+</p>
+<h1>Current user: #{current_user.name}</h1>
+<h2>User's pages</h2>
+<ol>
+  <% @pages.each do |page| %>
+    <li>
+      <i>user_id: #{page.user_id}</i>
+      <b>
+        <%= page.title %>
+      </b>
+    </li>
+  <% end %>
+</ol>

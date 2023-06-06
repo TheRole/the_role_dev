@@ -1,0 +1,8 @@
+.idea
+.DS_Store
+
+/db
+/gems
+/DummyApp
+/to_slug_param
+/the_role_api

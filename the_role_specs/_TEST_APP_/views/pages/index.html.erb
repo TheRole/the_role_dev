@@ -1,0 +1,46 @@
+<p>
+  <%= link_to 'Back', root_path %>
+</p>
+<h1>Listing of #{@pages.count} pages</h1>
+<table>
+  <tr>
+    <th>Num</th>
+    <th>User</th>
+    <th>Title</th>
+    <th>State</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @pages.each_with_index do |page, index| %>
+    <tr>
+      <td>
+        <% if current_user and current_user.owner?(page) %>
+          <span style="color:red">
+            <%= index.next %>
+          </span>
+        <% else %>
+          <%= index.next %>
+        <% end %>
+      </td>
+      <td>
+        <%= page.user_id %>
+      </td>
+      <td>
+        <%= page.title %>
+      </td>
+      <td>
+        <%= page.state %>
+      </td>
+      <td>
+        <%= link_to 'Show', page %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_page_path(page) %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', page, :data => { :confirm => 'Are you sure?' }, :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

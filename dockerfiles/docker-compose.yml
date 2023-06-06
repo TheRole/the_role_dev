@@ -1,0 +1,28 @@
+version: '3.9'
+
+name: 'the_role_dev'
+
+services:
+  psql:
+    image: postgres:15.1-bullseye
+    user: root
+    environment:
+      POSTGRES_PASSWORD: qwerty
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ../db/PGSQL:/var/lib/postgresql/data/pgdata
+
+  ruby2.7-rails6:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: ruby-2.7.8+rails-6.1.7.3.Dockerfile
+    working_dir: /home/the_role_dev
+    volumes:
+      - ../gems:/usr/local/bundle/gems
+      - ../:/home/the_role_dev
+    ports:
+      - 3000:3000
+    depends_on:
+      - psql
