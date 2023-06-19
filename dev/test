@@ -5,16 +5,18 @@ puts '~*' * 40
 puts '=> Testing `to_slug_params` gem'
 puts
 
-rails6app = 'cd rails6-app'
+rails_app = 'cd rails6-app'
 install_gems = 'bundle install'
 test_gem = 'RAILS_VERSION=6 RAILS_ENV=test bundle exec rspec ../to_slug_param/spec/helpers'
+
 puts '=> TESTING FOR RAILS 6 APP'
-system("#{rails6app} && #{install_gems} && #{test_gem}")
+system("#{rails_app} && #{install_gems} && #{test_gem}")
 puts
 
-rails6app = 'cd rails7-app'
+rails_app = 'cd rails7-app'
 install_gems = 'bundle install'
-test_gem = 'RAILS_VERSION=7  RAILS_ENV=test bundle exec rspec ../to_slug_param/spec/helpers'
+test_gem = 'RAILS_VERSION=7 RAILS_ENV=test bundle exec rspec ../to_slug_param/spec/helpers'
+
 puts '=> TESTING FOR RAILS 7 APP'
-system("#{rails6app} && #{install_gems} && #{test_gem}")
+system("#{rails_app} && #{install_gems} && #{test_gem}")
 puts
