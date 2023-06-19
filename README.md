@@ -11,18 +11,13 @@ ruby dev/setup
 ```
 
 ```sh
+docker compose -f dockerfiles/docker-compose.yml build
+
 docker compose -f dockerfiles/docker-compose.yml up
 
-docker compose -f dockerfiles/docker-compose.yml exec ruby2.7.8 bashls
+docker compose -f dockerfiles/docker-compose.yml exec ruby2.7.8 bash
 ```
 
-### Rails 6 and Rails 7 apps were created
-
-```sh
-rails new rails6-app --minimal
-
-rails new rails7-app --minimal
-```
 
 ### License
 
