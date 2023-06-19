@@ -6,9 +6,9 @@ puts "=> Building TheRole Development environment"
 puts
 
 puts "=> Cloning TheRoleAPI gem"
-system("git clone git@github.com:TheRole/the_role_api.git")
+system("git clone https://github.com/TheRole/the_role_api.git")
 puts
 
 puts "=> Cloning ToSlugParam gem"
-system("git clone git@github.com:TheOpenCMS/to_slug_param.git")
+system("git clone https://github.com/TheRole/to_slug_param.git")
 puts
