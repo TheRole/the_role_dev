@@ -3,12 +3,20 @@
 ### How to start environment
 
 ```sh
-git clone git@github.com:TheRole/the_role_dev.git
+git clone https://github.com/TheRole/the_role_dev.git
 ```
 
 ```sh
 ruby dev/setup
 ```
+
+### How to run tests
+
+```sh
+ruby dev/test
+```
+
+### How to run Docker env
 
 ```sh
 docker compose -f dockerfiles/docker-compose.yml build
