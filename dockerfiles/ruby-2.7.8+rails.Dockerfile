@@ -29,15 +29,20 @@ RUN yarn set version berry
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 RUN gem install rails -v 6.1.7.3
+RUN gem install rails -v 7.0.5
 
 RUN gem install pg      -v 1.5.3
 RUN gem install mysql2  -v 0.5.5
 RUN gem install sqlite3 -v 1.6.2
 
-RUN gem install bundler
+RUN gem install bundler -v 2.4.14
 
 WORKDIR /
 
-RUN /usr/local/bundle/bin/rails new app-psql   -d postgresql
-RUN /usr/local/bundle/bin/rails new app-mysql  -d mysql
-RUN /usr/local/bundle/bin/rails new app-sqlite -d sqlite3
+RUN /usr/local/bundle/bin/rails _6.1.7.3_ new rails6-psql   --minimal -d postgresql
+RUN /usr/local/bundle/bin/rails _6.1.7.3_ new rails6-mysql  --minimal -d mysql
+RUN /usr/local/bundle/bin/rails _6.1.7.3_ new rails6-sqlite --minimal -d sqlite3
+
+RUN /usr/local/bundle/bin/rails _7.0.5_ new rails6-psql   --minimal -d postgresql
+RUN /usr/local/bundle/bin/rails _7.0.5_ new rails6-mysql  --minimal -d mysql
+RUN /usr/local/bundle/bin/rails _7.0.5_ new rails6-sqlite --minimal -d sqlite3
