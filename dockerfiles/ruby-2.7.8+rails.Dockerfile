@@ -43,6 +43,6 @@ RUN /usr/local/bundle/bin/rails _6.1.7.3_ new rails6-psql   --minimal -d postgre
 RUN /usr/local/bundle/bin/rails _6.1.7.3_ new rails6-mysql  --minimal -d mysql
 RUN /usr/local/bundle/bin/rails _6.1.7.3_ new rails6-sqlite --minimal -d sqlite3
 
-RUN /usr/local/bundle/bin/rails _7.0.5_ new rails6-psql   --minimal -d postgresql
-RUN /usr/local/bundle/bin/rails _7.0.5_ new rails6-mysql  --minimal -d mysql
-RUN /usr/local/bundle/bin/rails _7.0.5_ new rails6-sqlite --minimal -d sqlite3
+RUN /usr/local/bundle/bin/rails _7.0.5_ new rails7-psql   --minimal -d postgresql
+RUN /usr/local/bundle/bin/rails _7.0.5_ new rails7-mysql  --minimal -d mysql
+RUN /usr/local/bundle/bin/rails _7.0.5_ new rails7-sqlite --minimal -d sqlite3
