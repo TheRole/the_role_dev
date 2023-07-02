@@ -39,7 +39,7 @@ ruby dev/build
 ruby dev/start
 ```
 
-### 5. Rin tests in a container
+### 5. Run tests in a container
 
 ```sh
 ruby dev/test
