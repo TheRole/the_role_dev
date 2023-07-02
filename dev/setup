@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 puts "~*" * 40
-puts "=> Building TheRole Development environment"
+puts "=> TheRole: Building Development environment"
 puts
 
 puts "=> Cloning TheRoleAPI gem"

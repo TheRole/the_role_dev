@@ -2,5 +2,5 @@
 # frozen_string_literal: true
 
 puts "~*" * 40
-puts "Building a container for development process"
+puts "TheRole: Building a container for development process"
 system("docker compose -f dockerfiles/docker-compose.yml build")

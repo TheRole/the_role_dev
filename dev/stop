@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+puts "~*" * 40
+puts "TheRole: Stop a container for development process"
+system("docker compose -f dockerfiles/docker-compose.yml down")
