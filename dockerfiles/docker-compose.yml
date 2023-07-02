@@ -22,7 +22,11 @@ services:
     command: 'tail -f /dev/null'
     volumes:
       - ../rails6-app:/home/the_role_dev/rails6-app
+      - ../db/sqlite3:/home/the_role_dev/rails6-app/db/sqlite3
+
       - ../rails7-app:/home/the_role_dev/rails7-app
+      - ../db/sqlite3:/home/the_role_dev/rails7-app/db/sqlite3
+
       - ../the_role_api:/home/the_role_dev/the_role_api
       - ../to_slug_param:/home/the_role_dev/to_slug_param
       - ../the_role_specs:/home/the_role_dev/the_role_specs
