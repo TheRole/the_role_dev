@@ -33,6 +33,13 @@ ruby dev/setup
 ruby dev/build
 ```
 
+### 4. Start a Docker container for development
+
+```sh
+ruby dev/start
+```
+
+
 ### How to run tests
 
 ```sh
