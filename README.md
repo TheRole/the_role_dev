@@ -39,28 +39,18 @@ ruby dev/build
 ruby dev/start
 ```
 
-### 5. Get in the Development conatiner
-
-```sh
-ruby dev/open
-```
-
-### How to run tests
+### 5. Rin tests in a container
 
 ```sh
 ruby dev/test
 ```
 
-### How to run Docker env
+
+### 6. Get in the Development conatiner
 
 ```sh
-docker compose -f dockerfiles/docker-compose.yml build
-
-docker compose -f dockerfiles/docker-compose.yml up
-
-docker compose -f dockerfiles/docker-compose.yml exec ruby2.7.8 bash
+ruby dev/open
 ```
-
 
 ### License
 
