@@ -1,5 +1,14 @@
 ## TheRole. Development environment
 
+### Requirements
+
+On your local machine you need some tools to start development process
+
+- docker
+- ruby
+- git
+
+versions of the tools are not very important. Just try to use the most recent ones.
 ### How to start environment
 
 ```sh
