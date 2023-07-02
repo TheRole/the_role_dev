@@ -37,7 +37,9 @@ RUN gem install sqlite3 -v 1.6.3 --no-document
 
 RUN gem install bundler -v 2.4.15 --no-document
 
-WORKDIR /
+RUN mkdir /home/the_role_dev
+RUN mkdir /home/the_role_dev/rails-versions
+WORKDIR /home/the_role_dev/rails-versions
 
 RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6-psql   --minimal -d postgresql
 RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6-mysql  --minimal -d mysql
@@ -46,3 +48,5 @@ RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6-sqlite --minimal -d sqlite3
 RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-psql   --minimal -d postgresql
 RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-mysql  --minimal -d mysql
 RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-sqlite --minimal -d sqlite3
+
+WORKDIR /home/the_role_dev
