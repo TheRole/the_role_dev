@@ -39,6 +39,11 @@ ruby dev/build
 ruby dev/start
 ```
 
+### 5. Get in the Development conatiner
+
+```sh
+ruby dev/open
+```
 
 ### How to run tests
 
