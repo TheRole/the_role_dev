@@ -1,0 +1,6 @@
+[submodule "the_role_api"]
+	path = the_role_api
+	url = https://github.com/TheRole/the_role_api.git
+[submodule "to_slug_param"]
+	path = to_slug_param
+	url = https://github.com/TheRole/to_slug_param.git
