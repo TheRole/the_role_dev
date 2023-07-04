@@ -39,14 +39,19 @@ ruby dev/build
 ruby dev/start
 ```
 
-### 5. Run tests in a container
+### 5. Check status a Docker container for development
+
+```sh
+ruby dev/status
+```
+
+### 6. Run tests in a container
 
 ```sh
 ruby dev/test
 ```
 
-
-### 6. Get in the Development conatiner
+### 7. Get in the Development conatiner
 
 ```sh
 ruby dev/open
