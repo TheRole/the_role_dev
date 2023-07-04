@@ -17,7 +17,7 @@ install_gems = 'bundle install'
 test_gem = 'RAILS_VERSION=6 RAILS_ENV=test bundle exec rspec ../to_slug_param/spec/helpers'
 
 test_rails6_command = [rails_app, install_gems, test_gem].join(' && ')
-rails_6_command = "docker compose -f dockerfiles/docker-compose.yml exec rails bash -c " + "'#{test_rails6_command}'"
+rails_6_command = "docker compose -f dockerfiles/docker-compose.yml exec rails bash -c " + "\"#{test_rails6_command}\""
 puts rails_6_command
 
 system(rails_6_command)
@@ -35,7 +35,7 @@ install_gems = 'bundle install'
 test_gem = 'RAILS_VERSION=7 RAILS_ENV=test bundle exec rspec ../to_slug_param/spec/helpers'
 
 test_rails7_command = [rails_app, install_gems, test_gem].join(' && ')
-rails_7_command = "docker compose -f dockerfiles/docker-compose.yml exec rails bash -c " + "'#{test_rails7_command}'"
+rails_7_command = "docker compose -f dockerfiles/docker-compose.yml exec rails bash -c " + "\"#{test_rails7_command}\""
 puts rails_7_command
 
 system(rails_7_command)
