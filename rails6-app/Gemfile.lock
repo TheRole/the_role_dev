@@ -91,6 +91,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -229,6 +231,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   devise (= 4.9.2)
+  factory_bot
   listen (~> 3.3)
   pry (= 0.14.2)
   puma (~> 5.0)
