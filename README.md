@@ -1,4 +1,4 @@
-## TheRole. Development environment
+## TheRole. Development Environment
 
 ### Requirements
 
@@ -11,56 +11,45 @@ On your local machine you need some tools to start development process
 versions of the tools are not very important. Just try to use the most recent ones.
 ## How to start developement process?
 
-### 1. Clone the Repo
+### 1. Clone the Repository
 
 ```sh
-git clone https://github.com/TheRole/the_role_dev.git
+git clone https://github.com/TheRole/the_role_dev.git --recursive
 ```
 
 ```sh
 cd the_role_dev
 ```
 
-### 2. Download and Prepare related things
-
-```sh
-ruby dev/setup
-```
-
-### 3. Build a Docker Image for development
+### 3. Build a Docker Image
 
 ```sh
 ruby dev/build
 ```
 
-### 4. Start a Docker container for development
+### 4. Start Docker containers
 
 ```sh
 ruby dev/start
 ```
 
-### 5. Get in the Development conatiner
-
-```sh
-ruby dev/open
-```
-
-### How to run tests
+### 5. Run Tests in a Container
 
 ```sh
 ruby dev/test
 ```
 
-### How to run Docker env
+### 6. Get in the Development Conatiner
 
 ```sh
-docker compose -f dockerfiles/docker-compose.yml build
-
-docker compose -f dockerfiles/docker-compose.yml up
-
-docker compose -f dockerfiles/docker-compose.yml exec ruby2.7.8 bash
+ruby dev/open
 ```
 
+### 7. Check status of Docker containers
+
+```sh
+ruby dev/status
+```
 
 ### License
 

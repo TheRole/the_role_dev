@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe User do
   describe "Owner check for User and object" do

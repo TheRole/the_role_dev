@@ -1,27 +1,28 @@
-require 'spec_helper'
+# /home/the_role_dev/rails6-app# bundle exec rspec ../the_role_specs/specs/models/hash_spec.rb
+require 'rails_helper'
 
 describe Hash do
   context "METHODS" do
     it "underscorify_keys" do
-      expect(Hash.new.respond_to?(:underscorify_keys)).to eq true 
+      expect(Hash.new.respond_to?(:underscorify_keys)).to eq true
     end
 
     it "underscorify_keys!" do
-      expect(Hash.new.respond_to?(:underscorify_keys!)).to eq true 
+      expect(Hash.new.respond_to?(:underscorify_keys!)).to eq true
     end
 
     it "deep_reset" do
-      expect(Hash.new.respond_to?(:deep_reset)).to eq true 
+      expect(Hash.new.respond_to?(:deep_reset)).to eq true
     end
-    
+
     it "deep_reset!" do
-      expect(Hash.new.respond_to?(:deep_reset!)).to eq true 
+      expect(Hash.new.respond_to?(:deep_reset!)).to eq true
     end
 
     it "deep_merge" do
       expect(Hash.new.respond_to?(:deep_merge)).to eq true
     end
-    
+
     it "deep_merge!" do
       expect(Hash.new.respond_to?(:deep_merge!)).to eq true
     end
@@ -64,7 +65,7 @@ describe Hash do
       }
       expect(hash.underscorify_keys!).to eq result
       expect(hash).to                    eq result
-    end    
+    end
   end
 
   context "HASH.deep_reset" do
