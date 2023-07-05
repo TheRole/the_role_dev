@@ -10,9 +10,10 @@ puts '=> TESTING FOR RAILS 6 APP/MODELS'
 
 rails_app = 'cd rails6-app'
 install_gems = 'bundle install'
+migrate_test_db = 'RAILS_ENV=test bin/rails db:migrate'
 test_gem = 'RAILS_ENV=test bundle exec rspec ../the_role_specs/specs/models'
 
-test_command = [rails_app, install_gems, test_gem].join(' && ')
+test_command = [rails_app, install_gems, migrate_test_db, test_gem].join(' && ')
 command = "docker compose -f dockerfiles/docker-compose.yml exec rails bash -c " + "\"#{test_command}\""
 puts command
 

@@ -14,7 +14,7 @@ puts '=> TESTING FOR RAILS 6 APP'
 
 rails_app = 'cd rails6-app'
 install_gems = 'bundle install'
-migrate_test_db = 'bin/rails db:migrate RAILS_ENV=test'
+migrate_test_db = 'RAILS_ENV=test bin/rails db:migrate'
 test_gem = 'RAILS_VERSION=6 RAILS_ENV=test bundle exec rspec ../to_slug_param/spec/helpers'
 
 test_rails6_command = [rails_app, install_gems, migrate_test_db, test_gem].join(' && ')
@@ -33,7 +33,7 @@ puts '=> TESTING FOR RAILS 7 APP'
 
 rails_app = 'cd rails7-app'
 install_gems = 'bundle install'
-migrate_test_db = 'bin/rails db:migrate RAILS_ENV=test'
+migrate_test_db = 'RAILS_ENV=test bin/rails db:migrate'
 test_gem = 'RAILS_VERSION=7 RAILS_ENV=test bundle exec rspec ../to_slug_param/spec/helpers'
 
 test_rails7_command = [rails_app, install_gems, migrate_test_db, test_gem].join(' && ')
