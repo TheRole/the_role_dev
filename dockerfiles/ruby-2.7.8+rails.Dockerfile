@@ -49,4 +49,7 @@ RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-psql   --minimal -d postgresq
 RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-mysql  --minimal -d mysql
 RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-sqlite --minimal -d sqlite3
 
+RUN git config --global --add safe.directory /home/the_role_dev/the_role_api
+RUN git config --global --add safe.directory /home/the_role_dev/to_slug_param
+
 WORKDIR /home/the_role_dev
