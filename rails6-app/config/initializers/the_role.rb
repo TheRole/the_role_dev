@@ -9,7 +9,7 @@ TheRole.configure do |config|
   # config.layout_title = 'The Role Gem'
 
   # config.default_user_role          = nil
-  config.first_user_should_be_admin = true
+  # config.first_user_should_be_admin = true
   # config.access_denied_method       = :access_denied
 
   # Dependent of Rails::VERSION

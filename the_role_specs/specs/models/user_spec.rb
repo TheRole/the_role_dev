@@ -5,30 +5,28 @@ require 'rails_helper'
 describe User do
   describe "Owner check for User and object" do
     context "Regular user" do
-      before(:each) do
-        @user_1 = FactoryBot.create(:user)
-        @user_2 = FactoryBot.create(:user)
+      let(:user_1) { create(:user) }
+      let(:user_2) { create(:user) }
 
-        @user_1_page = FactoryBot.create(:page, user: @user_1)
-        @user_2_page = FactoryBot.create(:page, user: @user_2)
-      end
+      let(:user_1_page) { create(:page, user: user_1) }
+      let(:user_2_page) { create(:page, user: user_2) }
 
       it 'should have test varaibles' do
-        expect(@user_1).to be_instance_of User
-        expect(@user_2).to be_instance_of User
+        expect(user_1).to be_instance_of User
+        expect(user_2).to be_instance_of User
 
-        expect(@user_1_page).to be_instance_of Page
-        expect(@user_2_page).to be_instance_of Page
+        expect(user_1_page).to be_instance_of Page
+        expect(user_2_page).to be_instance_of Page
       end
 
       it 'should be owner of page' do
-        expect(@user_1.owner?(@user_1_page)).to be_truthy
-        expect(@user_2.owner?(@user_2_page)).to be_truthy
+        expect(user_1.owner?(user_1_page)).to be_truthy
+        expect(user_2.owner?(user_2_page)).to be_truthy
       end
 
       it 'should not be owner of page' do
-        expect(@user_1.owner?(@user_2_page)).to be_falsey
-        expect(@user_2.owner?(@user_1_page)).to be_falsey
+        expect(user_1.owner?(user_2_page)).to be_falsey
+        expect(user_2.owner?(user_1_page)).to be_falsey
       end
     end
 
@@ -58,21 +56,21 @@ describe User do
       # not important. to implement later
     end
 
-    # context "Custom Page relation to User" do
-    #   before(:each) do
-    #     Page.class_eval do
-    #       belongs_to :user, class_name: User, foreign_key: 'person_id'
-    #     end
+    context "Custom Page relation to User" do
+      before(:each) do
+        Page.class_eval do
+          belongs_to :user, class_name: 'User', foreign_key: 'person_id'
+        end
 
-    #     @user = FactoryBot.create(:user)
-    #     @page = FactoryBot.create(:page, user: @user)
-    #   end
+        @user = create(:user)
+        @page = create(:page, user: @user)
+      end
 
-    #   it 'relation via person_id' do
-    #     @page.user_id.should   eq @user.id
-    #     @page.person_id.should eq @user.id
-    #   end
-    # end
+      it 'relation via person_id' do
+        @page.user_id.should   eq @user.id
+        @page.person_id.should eq @user.id
+      end
+    end
   end
 
   describe "Create user without any Role" do
