@@ -24,6 +24,9 @@ module Rails6App
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # ActiveSupport::Dependencies.autoload_paths
+    config.autoload_paths << "../the_role_specs/_TEST_APP_/controllers"
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

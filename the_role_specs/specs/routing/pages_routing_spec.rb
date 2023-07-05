@@ -1,8 +1,7 @@
-require "spec_helper"
+require "rails_helper"
 
-describe PagesController do
+describe "Routing for Pages Controller", type: :routing do
   describe "routing" do
-
     it "routes to #index" do
       expect(
         get("/pages")
