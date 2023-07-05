@@ -25,5 +25,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'devise', '4.9.2'
 gem 'the_role_api', path: '../the_role_api'
 gem 'to_slug_param', path: '../to_slug_param'
