@@ -3,32 +3,32 @@ require 'rails_helper'
 describe WelcomeController, type: :controller do
   describe "GET for GUESTS" do
     it "*INDEX* test *subject* object" do
-      get 'index'
+      get :index
       expect(subject.class).to eq(WelcomeController)
     end
 
     it "*INDEX* returns http success" do
-      get 'index'
-      expect(response).to be_success
+      get :index
+      expect(response.successful?).to be_truthy
     end
 
     it "*INDEX* render :index page" do
-      get 'index'
+      get :index
       expect(response).to render_template :index
     end
 
     it "*INDEX* *current_user* should be nil" do
-      get 'index'
+      get :index
       expect(subject.current_user).to be_nil
     end
 
     it "*PROFILE* will be redirect" do
-      get 'profile'
+      get :profile
       expect(response).to be_redirect
     end
 
     it "*PROFILE* will be redirect to new_user_session_path page" do
-      get 'profile'
+      get :profile
       expect(response).to redirect_to new_user_session_path
     end
   end
@@ -48,17 +48,17 @@ describe WelcomeController, type: :controller do
     end
 
     it "*PROFILE* should render :profile page" do
-      get 'profile'
+      get :profile
       expect(response).to render_template :profile
     end
 
     it "*PROFILE* should not to be redirect" do
-      get 'profile'
+      get :profile
       expect(response).not_to be_redirect
     end
 
     it "*PROFILE* *current_user* helper should return user" do
-      get 'profile'
+      get :profile
       expect(subject.current_user).to eq(@user)
     end
   end

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  include TheRole::Controller
+  include ::TheRole::Controller
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
