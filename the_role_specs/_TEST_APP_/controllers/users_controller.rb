@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :login_required
-  before_filter :role_required
+  before_action :login_required
+  before_action :role_required
 
-  before_filter :find_user,      :only => [:edit, :update]
-  before_filter :owner_required, :only => [:edit, :update]
+  before_action :find_user,      :only => [:edit, :update]
+  before_action :owner_required, :only => [:edit, :update]
 
   def edit; end
 

@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   # before_filter :authenticate_user!, :except => [:index, :autologin]
-  before_filter :login_required, :except => [:index, :autologin]
+  before_action :login_required, :except => [:index, :autologin]
 
   def index; end
   def profile; end

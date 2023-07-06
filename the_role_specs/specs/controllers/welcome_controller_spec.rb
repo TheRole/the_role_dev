@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe WelcomeController do
+describe WelcomeController, type: :controller do
   describe "GET for GUESTS" do
     it "*INDEX* test *subject* object" do
       get 'index'
@@ -21,7 +21,7 @@ describe WelcomeController do
       get 'index'
       expect(subject.current_user).to be_nil
     end
-    
+
     it "*PROFILE* will be redirect" do
       get 'profile'
       expect(response).to be_redirect
