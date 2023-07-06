@@ -32,6 +32,7 @@ module Rails6App
     config.paths["app/controllers"] << Rails.root.join("../the_role_specs/_TEST_APP_/controllers")
 
     config.paths["config/routes.rb"] << Rails.root.join("../the_role_specs/_TEST_APP_/routes.rb")
+    config.paths["config/initializers"] << Rails.root.join("../the_role_specs/_TEST_APP_/initializers")
 
     # Configuration for the application, engines, and railties goes here.
     #
