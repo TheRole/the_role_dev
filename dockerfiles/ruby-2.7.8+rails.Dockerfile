@@ -28,26 +28,51 @@ RUN yarn set version berry
 # RAILS
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-RUN gem install rails -v 6.1.7.4 --no-document
-RUN gem install rails -v 7.0.6   --no-document
+RUN gem install rails -v 3.2.22.5 --no-document
+RUN gem install rails -v 6.1.7.4  --no-document
+RUN gem install rails -v 7.0.6    --no-document
 
 RUN gem install pg      -v 1.5.3 --no-document
 RUN gem install mysql2  -v 0.5.5 --no-document
 RUN gem install sqlite3 -v 1.6.3 --no-document
 
 RUN gem install bundler -v 2.4.15 --no-document
+RUN gem install bundler -v 1.17.3 --no-document
 
 RUN mkdir /home/the_role_dev
 RUN mkdir /home/the_role_dev/rails-versions
+
 WORKDIR /home/the_role_dev/rails-versions
 
-RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6-psql   --minimal -d postgresql
-RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6-mysql  --minimal -d mysql
-RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6-sqlite --minimal -d sqlite3
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Pre-install gems for different RoR versions
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-psql   --minimal -d postgresql
-RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-mysql  --minimal -d mysql
-RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7-sqlite --minimal -d sqlite3
+COPY rails3-app/Gemfile Gemfile
+COPY rails3-app/Gemfile.lock Gemfile.lock
+RUN bundle _1.17.3_ install
+
+COPY the_role_api ../the_role_api
+COPY to_slug_param ../to_slug_param
+
+COPY rails6-app/Gemfile Gemfile
+COPY rails6-app/Gemfile.lock Gemfile.lock
+RUN bundle install
+
+COPY rails7-app/Gemfile Gemfile
+COPY rails7-app/Gemfile.lock Gemfile.lock
+RUN bundle install
+
+RUN rm -rf ../the_role_api
+RUN rm -rf ../to_slug_param
+
+# RUN /usr/local/bundle/bin/rails _3.2.22.5_ new rails3app
+# RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6app --minimal
+# RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7app --minimal
+
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Remove Git warnings
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 RUN git config --global --add safe.directory /home/the_role_dev/the_role_api
 RUN git config --global --add safe.directory /home/the_role_dev/to_slug_param
