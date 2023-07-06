@@ -22,9 +22,9 @@ role_moderator = {
 
 FactoryBot.define do
   factory :role_without_rules, class: Role do
-    name        { 'user' }
-    title       { 'User role' }
-    description { 'Default Role for users' }
+    name        { 'Role' }
+    title       { 'Default title for Role' }
+    description { 'Default example of role' }
 
     factory :role_user do
       the_role     { role_user }
