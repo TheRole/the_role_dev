@@ -62,5 +62,4 @@ describe WelcomeController, type: :controller do
       expect(subject.current_user).to eq(@user)
     end
   end
-
 end

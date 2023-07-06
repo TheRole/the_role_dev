@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe PagesController, type: :controller do
+  def view_var(name)
+    controller.instance_variable_get("@#{name}")
+  end
+
   def valid_page_attrs
     {
       title:   Faker::Lorem.sentence,
