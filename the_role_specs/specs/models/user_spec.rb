@@ -67,8 +67,8 @@ describe User do
       end
 
       it 'relation via person_id' do
-        @page.user_id.should   eq @user.id
-        @page.person_id.should eq @user.id
+        expect(@page.user_id).to   eq @user.id
+        expect(@page.person_id).to eq @user.id
       end
     end
   end
