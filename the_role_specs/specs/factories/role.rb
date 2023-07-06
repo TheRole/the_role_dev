@@ -1,18 +1,4 @@
-#############################################
-# EMPTY role
-#############################################
-
-FactoryBot.define do
-  factory :role_without_rules, class: Role do
-    name        { 'user' }
-    title       { 'User role' }
-    description { 'Default Role for users' }
-  end
-end
-
-#############################################
-# USER role
-#############################################
+# classique role for user
 role_user = {
   pages: {
     index:   true,
@@ -27,19 +13,7 @@ role_user = {
   }
 }
 
-FactoryBot.define do
-  factory :role_user, class: Role do
-    name        { 'user' }
-    title       { 'User role' }
-    description { 'Default Role for users' }
-    the_role     { role_user }
-  end
-end
-
-#############################################
-# MODERATOR role
-#############################################
-
+# moderator have access only for pages
 role_moderator = {
   moderator: {
     pages: true
@@ -47,10 +21,17 @@ role_moderator = {
 }
 
 FactoryBot.define do
-  factory :role_moderator, class: Role do
-    name        { 'pages_moderator' }
-    title       { 'Pages moderator' }
-    description { 'Can do anything with pages' }
-    the_role    { role_moderator }
+  factory :role_without_rules, class: Role do
+    name        { 'user' }
+    title       { 'User role' }
+    description { 'Default Role for users' }
+
+    factory :role_user do
+      the_role     { role_user }
+    end
+
+    factory :role_moderator do
+      the_role    { role_moderator }
+    end
   end
 end
