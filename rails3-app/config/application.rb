@@ -22,6 +22,15 @@ module Rails3App
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
+    config.paths["app/views"] << Rails.root.join("../the_role_specs/_TEST_APP_/views")
+    config.paths["app/models"] << Rails.root.join("../the_role_specs/_TEST_APP_/models")
+    config.paths["app/controllers"] << Rails.root.join("../the_role_specs/_TEST_APP_/controllers")
+
+    config.paths["db/migrate"] << Rails.root.join("../the_role_specs/_TEST_APP_/db/migrate")
+    config.paths["config/locales"] << Rails.root.join("../the_role_specs/_TEST_APP_/locales")
+    # config.paths["config/routes.rb"] << Rails.root.join("../the_role_specs/_TEST_APP_/routes.rb")
+    config.paths["config/initializers"] << Rails.root.join("../the_role_specs/_TEST_APP_/initializers")
+
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 

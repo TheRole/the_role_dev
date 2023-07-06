@@ -24,8 +24,16 @@ end
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'factory_bot', '4.8.2'
+  gem 'faker', '1.7.3'
+
   gem 'rspec-rails', '3.9.1'
+  gem 'pry', '0.14.2'
 end
+
+gem 'devise', '3.5.10'
+gem 'the_role_api', path: '../the_role_api'
+gem 'to_slug_param', path: '../to_slug_param'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
