@@ -7,5 +7,6 @@ class Page < ActiveRecord::Base
   validates :title,   presence: true, uniqueness: true
   validates :content, presence: true
 
+  # SCOPES
   scope :with_state, ->(states) { where state: Array.wrap(states) }
 end
