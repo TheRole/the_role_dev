@@ -18,8 +18,13 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'rails-controller-testing', '1.0.5'
+  gem 'pry', '0.14.2'
+  gem 'factory_bot', '6.2.1'
+  gem 'faker', '3.2.0'
+  gem 'rspec-rails', '6.0.3'
+
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'rspec-rails'
 end
 
 group :development do
@@ -27,5 +32,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'devise', '4.9.2'
 gem 'the_role_api', path: '../the_role_api'
 gem 'to_slug_param', path: '../to_slug_param'
