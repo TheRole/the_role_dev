@@ -61,14 +61,14 @@ describe User do
         Page.class_eval do
           belongs_to :user, class_name: 'User', foreign_key: 'person_id'
         end
-
-        @user = create(:user)
-        @page = create(:page, user: @user)
       end
 
+      let(:user_custom_page) { create(:user) }
+      let(:page) { create(:page, user: user_custom_page ) }
+
       it 'relation via person_id' do
-        expect(@page.user_id).to   eq @user.id
-        expect(@page.person_id).to eq @user.id
+        expect(page.user_id).to   eq user_custom_page.id
+        expect(page.person_id).to eq user_custom_page.id
       end
     end
   end
