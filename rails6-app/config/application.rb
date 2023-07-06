@@ -31,6 +31,7 @@ module Rails6App
     config.paths["app/models"] << Rails.root.join("../the_role_specs/_TEST_APP_/models")
     config.paths["app/controllers"] << Rails.root.join("../the_role_specs/_TEST_APP_/controllers")
 
+    config.paths["db/migrate"] << Rails.root.join("../the_role_specs/_TEST_APP_/db/migrate")
     config.paths["config/routes.rb"] << Rails.root.join("../the_role_specs/_TEST_APP_/routes.rb")
     config.paths["config/initializers"] << Rails.root.join("../the_role_specs/_TEST_APP_/initializers")
 
