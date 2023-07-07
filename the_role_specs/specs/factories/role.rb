@@ -33,7 +33,7 @@ FactoryBot.define do
     end
 
     factory :role_moderator do
-      name { 'pages_moderator' }
+      name     { 'pages_moderator' }
       title    { 'Pages Moderator Role' }
       the_role { role_moderator }
     end

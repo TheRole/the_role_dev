@@ -31,13 +31,13 @@ describe Role do
     end
 
     it "New/Create, without Role hash, default Role hash value" do
-      role = FactoryBot.create :role_without_rules
+      role = create :role_without_rules
       expect(role.to_json).to eq("{}")
       expect(role.to_hash).to eq({})
     end
 
     it "New/Create, role methods result types" do
-      role = FactoryBot.create :role_without_rules
+      role = create :role_without_rules
       expect(role.to_json).to be_an_instance_of String
       expect(role.to_hash).to be_an_instance_of Hash
     end
@@ -67,7 +67,7 @@ describe Role do
 
   context "Role *Section/Rule create* methods" do
     before(:each) do
-      @role = FactoryBot.create :role_without_rules
+      @role = create :role_without_rules
     end
 
     it "should have empty Role hash" do
@@ -93,7 +93,7 @@ describe Role do
 
   context "*has?* is aliace of *has_role?*" do
     before(:each) do
-      @role = FactoryBot.create :role_user
+      @role = create :role_user
     end
 
     it "aliace methods" do
@@ -107,7 +107,7 @@ describe Role do
 
   context "Rule *On/Off* methods" do
     before(:each) do
-      @role = FactoryBot.create :role_user
+      @role = create :role_user
     end
 
     it "has access to pages/index" do
@@ -131,7 +131,7 @@ describe Role do
 
   context "Class Methods" do
     before(:each) do
-      @role = FactoryBot.create :role_user
+      @role = create :role_user
     end
 
     it "Role.with_name(:name) method" do
@@ -145,7 +145,7 @@ describe Role do
 
   context "*Delete* methods" do
     before(:each) do
-      @role = FactoryBot.create :role_user
+      @role = create :role_user
     end
 
     it "*has_section?* method" do
@@ -174,7 +174,7 @@ describe Role do
 
   context "*helper* methods" do
     before(:each) do
-      @role = FactoryBot.create :role_without_rules
+      @role = create :role_without_rules
     end
 
     it "to_hash on empty rules set" do
@@ -188,7 +188,7 @@ describe Role do
 
   context "Update method" do
     before(:each) do
-      @role = FactoryBot.create :role_user
+      @role = create :role_user
     end
 
     it "should has true rules" do

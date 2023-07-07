@@ -35,7 +35,7 @@ describe WelcomeController, type: :controller do
 
   describe "GET for LOGGED_IN users" do
     before(:each) do
-      @user = FactoryBot.create(:user)
+      @user = create(:user)
       sign_in @user
     end
 

@@ -6,7 +6,7 @@ describe "Admin::RolesController", type: :controller  do
       describe 'Unauthorized' do
         before(:each) do
           @request.env['HTTP_REFERER'] = '/'
-          @role = FactoryBot.create(:role_user)
+          @role = create(:role_user)
         end
 
         %w{ index new }.each do |action|
@@ -28,8 +28,8 @@ describe "Admin::RolesController", type: :controller  do
         describe "Can't do something with Roles" do
           before(:each) do
             @request.env['HTTP_REFERER'] = '/'
-            @user = FactoryBot.create(:user)
-            @role = FactoryBot.create(:role_user)
+            @user = create(:user)
+            @role = create(:role_user)
             sign_in @user
           end
 

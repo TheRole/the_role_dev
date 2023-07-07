@@ -18,7 +18,7 @@ describe "Admin::RolesController", type: :routing do
 
       describe "member block" do
         before(:all) do
-          @role = FactoryBot.create(:role_user)
+          @role = create(:role_user)
         end
 
         after(:all) do

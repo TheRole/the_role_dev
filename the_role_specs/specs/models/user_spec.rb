@@ -32,13 +32,13 @@ describe User do
 
     context "Moderator" do
       before(:each) do
-        mrole = FactoryBot.create(:role_moderator)
+        mrole = create(:role_moderator)
 
-        @moderator = FactoryBot.create(:user, role: mrole)
-        @user      = FactoryBot.create(:user)
+        @moderator = create(:user, role: mrole)
+        @user      = create(:user)
 
-        @moderator_page = FactoryBot.create(:page, user: @moderator)
-        @user_page      = FactoryBot.create(:page, user: @user)
+        @moderator_page = create(:page, user: @moderator)
+        @user_page      = create(:page, user: @user)
       end
 
       it 'Moderator is owner of any Page' do
@@ -75,7 +75,7 @@ describe User do
 
   describe "Create user without any Role" do
     before(:each) do
-      FactoryBot.create(:user)
+      create(:user)
       @user = User.first
     end
 
