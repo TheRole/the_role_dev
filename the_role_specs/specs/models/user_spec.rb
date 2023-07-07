@@ -96,8 +96,8 @@ describe User do
   describe "Create user with default Role" do
     before(:each) do
       TheRole.config.default_user_role = :user
-      FactoryBot.create(:role_user)
-      FactoryBot.create(:user)
+      create(:role_user)
+      create(:user)
       @user = User.first
     end
 
@@ -106,7 +106,7 @@ describe User do
       expect(User.count).to be 1
     end
 
-    it "Role should nave name :user" do
+    it "Role should have name :user" do
       expect(Role.first.name).to eq 'user'
     end
 

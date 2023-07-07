@@ -27,11 +27,15 @@ FactoryBot.define do
     description { 'Default example of role' }
 
     factory :role_user do
-      the_role     { role_user }
+      name     { 'user' }
+      title    { 'User Role' }
+      the_role { role_user }
     end
 
     factory :role_moderator do
-      the_role    { role_moderator }
+      name { 'pages_moderator' }
+      title    { 'Pages Moderator Role' }
+      the_role { role_moderator }
     end
   end
 end

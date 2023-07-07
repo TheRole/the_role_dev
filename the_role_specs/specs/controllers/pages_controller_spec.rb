@@ -18,12 +18,12 @@ describe PagesController, type: :controller do
   end
 
   before(:each) do
-    @role           = FactoryBot.create(:role_user)
-    @moderator_role = FactoryBot.create(:role_moderator)
+    @role = create(:role_user)
+    @moderator_role = create(:role_moderator)
 
-    @owner     = FactoryBot.create(:user, role: @role)
-    @hacker    = FactoryBot.create(:user, role: @role)
-    @moderator = FactoryBot.create(:user, role: @moderator_role)
+    @owner = create(:user, role: @role)
+    @hacker = create(:user, role: @role)
+    @moderator = create(:user, role: @moderator_role)
 
     @owner.pages.create! valid_page_for(@owner)
   end
