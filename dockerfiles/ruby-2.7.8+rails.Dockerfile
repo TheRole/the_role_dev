@@ -28,7 +28,6 @@ RUN yarn set version berry
 # RAILS
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-RUN gem install rails -v 3.2.22.5 --no-document
 RUN gem install rails -v 6.1.7.4  --no-document
 RUN gem install rails -v 7.0.6    --no-document
 
@@ -37,7 +36,6 @@ RUN gem install mysql2  -v 0.5.5 --no-document
 RUN gem install sqlite3 -v 1.6.3 --no-document
 
 RUN gem install bundler -v 2.4.15 --no-document
-RUN gem install bundler -v 1.17.3 --no-document
 
 RUN mkdir /home/the_role_dev
 RUN mkdir /home/the_role_dev/rails-versions
@@ -47,10 +45,6 @@ WORKDIR /home/the_role_dev/rails-versions
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 # Pre-install gems for different RoR versions
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-COPY rails3-app/Gemfile Gemfile
-COPY rails3-app/Gemfile.lock Gemfile.lock
-RUN bundle _1.17.3_ install
 
 COPY the_role_api ../the_role_api
 COPY to_slug_param ../to_slug_param
@@ -66,7 +60,6 @@ RUN bundle install
 RUN rm -rf ../the_role_api
 RUN rm -rf ../to_slug_param
 
-# RUN /usr/local/bundle/bin/rails _3.2.22.5_ new rails3app
 # RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6app --minimal
 # RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7app --minimal
 

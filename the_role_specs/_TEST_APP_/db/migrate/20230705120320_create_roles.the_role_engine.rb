@@ -1,10 +1,12 @@
 # This migration comes from the_role_engine (originally 20111025025129)
 
+require_relative './active_record_migration'
+
 # rails g the_role install
 # rake the_role_engine:install:migrations
 # rake db:migrate
 # rake db:the_role:admin
-class CreateRoles < ActiveRecord::Migration[5.2]
+class CreateRoles < active_record_migration
   def self.up
     create_table :roles do |t|
       t.string :name,        null: false

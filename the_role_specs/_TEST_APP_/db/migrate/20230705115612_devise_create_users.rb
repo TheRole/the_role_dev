@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+require_relative './active_record_migration'
+
 # rails generate devise:install
 # rails generate devise user
 # rake db:create
 # rake db:migrate
-class DeviseCreateUsers < ActiveRecord::Migration[6.1]
+class DeviseCreateUsers < active_record_migration
   def change
     create_table :users do |t|
       ## Database authenticatable

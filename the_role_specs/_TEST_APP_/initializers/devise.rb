@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '3cd99850b5182403bd33fba7e5e1a947ccd1abd4d61e2d6bdb1b49d05bdecf50d1a22a4b94f8a0d0f26833b3e519e911cc35d23833034ab49bb98b3c2456d364'
+  config.secret_key = '3cd99850b5182403bd33fba7e5e1a947ccd1abd4d61e2d6bdb1b49d05bdecf50d1a22a4b94f8a0d0f26833b3e519e911cc35d23833034ab49bb98b3c2456d364'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -302,8 +302,11 @@ Devise.setup do |config|
   # apps is `200 OK` and `302 Found respectively`, but new apps are generated with
   # these new defaults that match Hotwire/Turbo behavior.
   # Note: These might become the new default in future versions of Devise.
-  config.responder.error_status = :unprocessable_entity
-  config.responder.redirect_status = :see_other
+
+  unless Rails::VERSION::MAJOR == 3
+    config.responder.error_status = :unprocessable_entity
+    config.responder.redirect_status = :see_other
+  end
 
   # ==> Configuration for :registerable
 

@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   if Rails::VERSION::MAJOR == 3
     class << self
       alias_method :before_action, :before_filter
