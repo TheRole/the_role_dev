@@ -23,11 +23,11 @@ describe Role do
     end
 
     it "New/Create valid, without Role hash (2)" do
-      expect(Role.new(
+      expect(Role.create(
         name: :user,
         title: :user_title,
         description: :role_description
-      ).save).to be_truthy
+      )).to be_truthy
     end
 
     it "New/Create, without Role hash, default Role hash value" do
