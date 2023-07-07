@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :page do
-    title   { Faker::Lorem.sentence }
+    sequence(:title)   { |n| Faker::Lorem.sentence + "#{n}" }
     content { Faker::Lorem.sentence }
+
+    association :user, factory: :user
   end
 end
