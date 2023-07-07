@@ -28,6 +28,10 @@ RUN yarn set version berry
 # RAILS
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+# gem install rails -v 4.2.11.3
+# rails _4.2.11.3_ new rails4-app --skip-bundle --minimal
+# bundler _1.17.3_ install
+
 RUN gem install rails -v 6.1.7.4  --no-document
 RUN gem install rails -v 7.0.6    --no-document
 
@@ -35,6 +39,7 @@ RUN gem install pg      -v 1.5.3 --no-document
 RUN gem install mysql2  -v 0.5.5 --no-document
 RUN gem install sqlite3 -v 1.6.3 --no-document
 
+RUN gem install bundler -v 1.17.3 --no-document
 RUN gem install bundler -v 2.4.15 --no-document
 
 RUN mkdir /home/the_role_dev
