@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe PagesController, type: :controller do
+  def params(data)
+    return data if Rails::VERSION::MAJOR < 4
+    { params: data }
+  end
+
   def view_var(name)
     controller.instance_variable_get("@#{name}")
   end
@@ -31,7 +36,7 @@ describe PagesController, type: :controller do
   describe "Guest" do
     describe 'NOT AUTORIZED/NO ROLE/NOT OWNER' do
       it "CREATE / but should be redirected" do
-        post :create, params: { page: { fake: true } }
+        post :create, params({ page: { fake: true } })
         expect(response).to redirect_to new_user_session_path
       end
     end
@@ -44,25 +49,25 @@ describe PagesController, type: :controller do
       context "CREATE" do
         it "valid" do
           expect {
-            post :create , params: { page: valid_page_for(@owner) }
+            post :create , params({ page: valid_page_for(@owner) })
           }.to change(Page, :count).by(1)
         end
 
         it "invalid params" do
           expect {
-            post :create, params: { page: { fake: true } }
+            post :create, params({ page: { fake: true } })
           }.to_not change(Page, :count)
 
           expect(response).to render_template :new
         end
 
         it "valid, no errors" do
-          post :create , params: { page: valid_page_for(@owner) }
+          post :create , params({ page: valid_page_for(@owner) })
           expect(view_var(:page).errors).to be_empty
         end
 
         it "valid, redirect to SHOW" do
-          post :create, params: { page: valid_page_for(@owner) }
+          post :create, params({ page: valid_page_for(@owner) })
           expect(response).to redirect_to page_path view_var(:page)
         end
       end
@@ -83,7 +88,7 @@ describe PagesController, type: :controller do
           new_title = "test_title"
 
           expect {
-            put :update, params: { id: @page, page: { title: new_title } }
+            put :update, params({ id: @page, page: { title: new_title } })
             @page.reload
           }.to change(@page, :title).from(old_title).to(new_title)
         end
@@ -96,7 +101,7 @@ describe PagesController, type: :controller do
       it "hacker should be blocked" do
         sign_in @hacker
         @request.env['HTTP_REFERER'] = '/'
-        put :update, params: { id: @page, page: { title: "test_title" } }
+        put :update, params({ id: @page, page: { title: "test_title" } })
         expect(response.body).to match access_denied_match
       end
     end
@@ -114,7 +119,7 @@ describe PagesController, type: :controller do
       sign_in @owner
 
       expect {
-        put :update, params: { id: @page, page: { title: @new_title } }
+        put :update, params({ id: @page, page: { title: @new_title } })
         @page.reload
       }.to change(@page, :title).from(@old_title).to(@new_title)
     end
@@ -123,7 +128,7 @@ describe PagesController, type: :controller do
       sign_in @moderator
 
       expect {
-        put :update, params: { id: @page, page: { title: @new_title } }
+        put :update, params({ id: @page, page: { title: @new_title } })
         @page.reload
       }.to change(@page, :title).from(@old_title).to(@new_title)
     end
@@ -133,7 +138,7 @@ describe PagesController, type: :controller do
       @request.env['HTTP_REFERER'] = '/'
 
       expect {
-        put :update, params: { id: @page, page: { title: @new_title } }
+        put :update, params({ id: @page, page: { title: @new_title } })
         @page.reload
       }.not_to change(@page, :title)
     end

@@ -46,7 +46,9 @@ class PagesController < ApplicationController
   def edit; end
 
   def update
-    if @page.update page_params
+    update_method = Rails::VERSION::MAJOR < 4 ? :update_attributes : :update
+
+    if @page.send(update_method, page_params)
       redirect_to @page, notice: 'Page was successfully updated.'
     else
       render action: :edit
@@ -74,6 +76,11 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:user_id, :title, :content, :state)
+    parameters.permit(:user_id, :title, :content, :state)
+  end
+
+  def parameters
+    return params.require(:params).require(:page) if params.key?('params')
+    params.require(:page)
   end
 end

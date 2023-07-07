@@ -9,6 +9,11 @@ require 'rspec/rails'
 
 Dir[Rails.root.join('../', 'the_role_specs', 'specs', 'factories', '**', '*.rb')].sort.each { |f| require f }
 
+# Return default text on "Access Denied" page
+def access_denied_match
+  "redirected"
+end
+
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
