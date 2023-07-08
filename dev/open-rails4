@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+puts "~*" * 40
+puts "TheRole: Welcome to the Development Container (Rails 4)"
+system("docker compose -f dockerfiles/docker-compose.yml exec rails4 bash")

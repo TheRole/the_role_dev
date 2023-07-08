@@ -12,6 +12,16 @@ module Rails4App
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.paths["app/views"] << Rails.root.join("../the_role_specs/_TEST_APP_/views")
+    config.paths["app/models"] << Rails.root.join("../the_role_specs/_TEST_APP_/models")
+    config.paths["app/controllers"] << Rails.root.join("../the_role_specs/_TEST_APP_/controllers")
+
+    config.paths["db/migrate"] << Rails.root.join("../the_role_specs/_TEST_APP_/db/migrate")
+    config.paths["config/locales"] << Rails.root.join("../the_role_specs/_TEST_APP_/locales")
+
+    config.paths['config/routes.rb'] << Rails.root.join("../the_role_specs/_TEST_APP_/routes.rb")
+    config.paths["config/initializers"] << Rails.root.join("../the_role_specs/_TEST_APP_/initializers")
+
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'

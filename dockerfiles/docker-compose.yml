@@ -22,8 +22,28 @@ services:
     command: 'tail -f /dev/null'
     volumes:
       - ../tmp:/home/the_role_dev/tmp
+
       - ../rails3-app:/home/the_role_dev/rails3-app
       - ../db/sqlite3:/home/the_role_dev/rails3-app/db/sqlite3
+
+      - ../the_role_api:/home/the_role_dev/the_role_api
+      - ../to_slug_param:/home/the_role_dev/to_slug_param
+      - ../the_role_specs:/home/the_role_dev/the_role_specs
+
+  rails4:
+    tty: true
+    stdin_open: true
+    build:
+      context: ..
+      dockerfile: ./dockerfiles/ruby-2.6.10+rails.Dockerfile
+    working_dir: /home/the_role_dev
+    command: 'tail -f /dev/null'
+    volumes:
+      - ../tmp:/home/the_role_dev/tmp
+
+      - ../rails4-app:/home/the_role_dev/rails4-app
+      - ../db/sqlite3:/home/the_role_dev/rails4-app/db/sqlite3
+
       - ../the_role_api:/home/the_role_dev/the_role_api
       - ../to_slug_param:/home/the_role_dev/to_slug_param
       - ../the_role_specs:/home/the_role_dev/the_role_specs
@@ -39,9 +59,6 @@ services:
     volumes:
       - ../tmp:/home/the_role_dev/tmp
 
-      - ../rails4-app:/home/the_role_dev/rails4-app
-      - ../db/sqlite3:/home/the_role_dev/rails4-app/db/sqlite3
-
       - ../rails6-app:/home/the_role_dev/rails6-app
       - ../db/sqlite3:/home/the_role_dev/rails6-app/db/sqlite3
 
@@ -50,8 +67,8 @@ services:
 
       - ../the_role_api:/home/the_role_dev/the_role_api
       - ../to_slug_param:/home/the_role_dev/to_slug_param
-
       - ../the_role_specs:/home/the_role_dev/the_role_specs
+
     ports:
       - 3000:3000
     depends_on:
