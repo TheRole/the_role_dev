@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# ==========================================================================================================
+# RAILS 4. gem the_role_api
+# ==========================================================================================================
+
+puts '~*' * 40
+puts '=> TESTING FOR RAILS 4 APP'
+
+rails_app = 'cd rails4-app'
+turn_on_nodejs = 'source /opt/.nvm/nvm.sh'
+install_gems = 'bundle install'
+db_create = 'bundle exec rake db:create:all'
+migrate_test_db = 'RAILS_ENV=test bundle exec rake db:migrate'
+test_gem = 'RAILS_ENV=test bundle exec rspec ../the_role_specs/specs'
+
+test_command = [rails_app, turn_on_nodejs, install_gems, db_create, migrate_test_db, test_gem].join(' && ')
+command = "docker compose -f dockerfiles/docker-compose.yml exec rails4 bash -c " + "\"#{test_command}\""
+puts command
+
+system(command)
+puts
