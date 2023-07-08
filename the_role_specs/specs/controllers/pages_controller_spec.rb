@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe PagesController, type: :controller do
   def params(data)
-    return data if Rails::VERSION::MAJOR < 4
+    return data if Rails::VERSION::MAJOR < 5
     { params: data }
   end
 
