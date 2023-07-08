@@ -5,6 +5,7 @@ require "rspec/rails/version"
 describe "Testing Environment" do
   context "Information" do
     it "is what we have" do
+      puts
       puts ">" * 70
       puts "RUBY_VERSION = #{RUBY_VERSION}"
       puts "RAILS VERSION = #{Rails.version}"
