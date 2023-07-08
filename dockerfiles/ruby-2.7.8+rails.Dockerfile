@@ -28,10 +28,7 @@ RUN yarn set version berry
 # RAILS
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-# gem install rails -v 4.2.11.3
-# rails _4.2.11.3_ new rails4-app --skip-bundle --minimal
-# bundler _1.17.3_ install
-
+RUN gem install rails -v 5.2.8.1  --no-document
 RUN gem install rails -v 6.1.7.4  --no-document
 RUN gem install rails -v 7.0.6    --no-document
 
@@ -39,7 +36,6 @@ RUN gem install pg      -v 1.5.3 --no-document
 RUN gem install mysql2  -v 0.5.5 --no-document
 RUN gem install sqlite3 -v 1.6.3 --no-document
 
-RUN gem install bundler -v 1.17.3 --no-document
 RUN gem install bundler -v 2.4.15 --no-document
 
 RUN mkdir /home/the_role_dev
@@ -54,6 +50,10 @@ WORKDIR /home/the_role_dev/rails-versions
 COPY the_role_api ../the_role_api
 COPY to_slug_param ../to_slug_param
 
+COPY rails5-app/Gemfile Gemfile
+COPY rails5-app/Gemfile.lock Gemfile.lock
+RUN bundle install
+
 COPY rails6-app/Gemfile Gemfile
 COPY rails6-app/Gemfile.lock Gemfile.lock
 RUN bundle install
@@ -65,6 +65,7 @@ RUN bundle install
 RUN rm -rf ../the_role_api
 RUN rm -rf ../to_slug_param
 
+# RUN /usr/local/bundle/bin/rails _5.2.8.1_ new rails6app --minimal
 # RUN /usr/local/bundle/bin/rails _6.1.7.4_ new rails6app --minimal
 # RUN /usr/local/bundle/bin/rails _7.0.6_ new rails7app --minimal
 

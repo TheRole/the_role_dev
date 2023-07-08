@@ -59,6 +59,9 @@ services:
     volumes:
       - ../tmp:/home/the_role_dev/tmp
 
+      - ../rails5-app:/home/the_role_dev/rails5-app
+      - ../db/sqlite3:/home/the_role_dev/rails5-app/db/sqlite3
+
       - ../rails6-app:/home/the_role_dev/rails6-app
       - ../db/sqlite3:/home/the_role_dev/rails6-app/db/sqlite3
 
