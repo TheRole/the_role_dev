@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # > HARDFIX for RAILS 4
 # Open dependencies lead to get most modern versions of gems
+gem 'spring', "2.1.0"
 gem "loofah", "2.5.0"
 gem "racc", "1.5.0"
 gem "nokogiri", "1.10.8"
